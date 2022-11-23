@@ -40,6 +40,7 @@ The reactive BLE lib supports the following:
 ### Android
 
 You need to add the following permissions to your AndroidManifest.xml file:
+
 ```xml
 <uses-permission android:name="android.permission.BLUETOOTH_SCAN" android:usesPermissionFlags="neverForLocation" />
 <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
@@ -47,7 +48,13 @@ You need to add the following permissions to your AndroidManifest.xml file:
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" android:maxSdkVersion="30" />
 ```
 
-If you use `BLUETOOTH_SCAN` to determine location, remove `android:usesPermissionFlags="neverForLocation"`
+If you use `BLUETOOTH_SCAN` to determine location, modify your AndroidManfiest.xml file to include the following entry:
+
+```xml
+ <uses-permission android:name="android.permission.BLUETOOTH_SCAN" 
+                     tools:remove="android:usesPermissionFlags"
+                     tools:targetApi="s" />
+```
 
 If you use location services in your app, remove `android:maxSdkVersion="30"` from the location permission tags
 
@@ -251,4 +258,5 @@ This will prevent issues like [#147](https://github.com/PhilipsHue/flutter_react
 
 #### Unofficial example apps
 
-Example implementation UART over BLE:[link](https://github.com/wolfc01/flutter_reactive_ble_uart_example)
+- Example implementation UART over BLE:[link](https://github.com/wolfc01/flutter_reactive_ble_uart_example)
+- Example implementation subscription to characteristic using StreamProvider: [link](https://github.com/ubiqueIoT/flutter-reactive-ble-example)
