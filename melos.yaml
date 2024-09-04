@@ -1,12 +1,15 @@
 name: flutter_reactive_ble
 packages:
-  - /**
+  - packages/*
+  - example
 scripts:
   analyze: melos exec -- flutter analyze
 
   format: melos exec -- flutter format .
 
   get: melos exec -- flutter pub get
+
+  upgrade: melos exec -- flutter packages upgrade
 
   unittest: 
     run: melos exec -- flutter test
